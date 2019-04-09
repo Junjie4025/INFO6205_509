@@ -1,4 +1,6 @@
+
 import java.util.Random;
+
 
 public class Map {
     private char[][] map;
@@ -41,7 +43,7 @@ public class Map {
     public void getMap(){
         for(int i = 0; i < ROW; i++){
             for(int j = 0; j < COL; j++){
-                System.out.println(map[i][j] + " ")
+                System.out.println(map[i][j] + " ");
             }
             System.out.println();
         }
