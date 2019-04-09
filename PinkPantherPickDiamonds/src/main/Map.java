@@ -16,7 +16,7 @@ public class Map {
         Random random = new Random();
         for(int i = 0; i < ROW; i++){
             for(int j= 0; j < COL; j++){
-                int n = rand.nextInt(100);
+                int n = random.nextInt(100);
                 if(n >= 0 && n < 25){
                     //25% Diamonds
                     map[i][j] = 'D';
@@ -43,7 +43,7 @@ public class Map {
     public void getMap(){
         for(int i = 0; i < ROW; i++){
             for(int j = 0; j < COL; j++){
-                System.out.println(map[i][j] + " ")
+                System.out.println(map[i][j] + " ");
             }
             System.out.println();
         }
