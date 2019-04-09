@@ -1,3 +1,4 @@
+
 public class Map {
     private char[][] map;
     private final int ROW = 50;
