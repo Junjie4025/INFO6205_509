@@ -13,6 +13,7 @@
     <session id="-574044548">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -20,11 +21,13 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="java" value="9" />
+          <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JAVA" value="9" />
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -41,7 +44,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Map.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
@@ -73,7 +76,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/EvolutionProcess.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="782">
@@ -135,6 +138,11 @@
             <path>
               <item name="PinkPantherPickDiamonds" type="b2602c69:ProjectViewProjectNode" />
               <item name="PinkPantherPickDiamonds" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PinkPantherPickDiamonds" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PinkPantherPickDiamonds" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PinkPantherPickDiamonds" type="b2602c69:ProjectViewProjectNode" />
@@ -208,7 +216,7 @@
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20818071" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -260,13 +268,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/EvolutionProcess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/PinkPanther.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -284,6 +285,9 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Map.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -292,6 +296,13 @@
             <element signature="e#301#302#0" expanded="true" />
             <element signature="e#346#347#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/EvolutionProcess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
         </state>
       </provider>
     </entry>
