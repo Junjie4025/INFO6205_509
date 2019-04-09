@@ -23,5 +23,5 @@
 hs_err_pid*
 
 # Intellij #
-*.idea
-*.DS_Store
+.idea
+.DS_Store
