@@ -34,5 +34,9 @@ public class PinkPanther {
         this.score = score;
     }
 
+    public int[] getGenre() {
+        return this.genre;
+    }
+
 
 }
