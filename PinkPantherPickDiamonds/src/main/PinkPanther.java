@@ -38,5 +38,15 @@ public class PinkPanther {
         return this.genre;
     }
 
+    public void printGenre(){
+        for(int i = 0; i < genre.length; i++){
+            System.out.print(genre[i] + " ");
+        }
+    }
+
+//    public static void main(String[] args){
+//        PinkPanther p = new PinkPanther();
+//        p.printGenre();
+//    }
 
 }
