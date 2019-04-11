@@ -39,13 +39,33 @@ public class Map {
 
     }
 
+    public char[][] getMap() {
+        return map;
+    }
+
     //print the map
-    public void getMap(){
+    public void printMap(){
         for(int i = 0; i < ROW; i++){
             for(int j = 0; j < COL; j++){
-                System.out.println(map[i][j] + " ");
+                System.out.print(map[i][j] + " ");
             }
             System.out.println();
         }
     }
+
+    public int getROW() {
+        return ROW;
+    }
+
+    public int getCOL() {
+        return COL;
+    }
+
+//    public static void main(String[] args){
+//        Map m = new Map();
+//        m.initMap();
+//        m.printMap();
+//    }
 }
+
+
