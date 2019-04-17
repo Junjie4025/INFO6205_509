@@ -1,3 +1,7 @@
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,15 +52,25 @@ public class CollectDiamondProcess {
         LOGGER.log(Level.INFO, "pink panther's score is: "+ p.getScore());
     }
 
+    public void collectDiamond(List<PinkPanther> list) {
+
+        for(PinkPanther p : list) {
+            collectDiamond(p);
+        }
+
+    }
+
     private void route(PinkPanther p,int row, int col){
         LOGGER.log(Level.INFO, "pink panther has : "+ p.getPass() + " and its score is : " + p.getScore() + " now !");
+
+        if(row < 0 || row >= 50 || col < 0 || col >= 50) return;
 
         char element = map[row][col];
         int score = p.getScore();
         int pass = p.getPass();
 
-        System.out.println("element in map is " + element);
-        System.out.println("current pass is " + pass + " score is " + score);
+        //System.out.println("element in map is " + element);
+        //System.out.println("current pass is " + pass + " score is " + score);
 
         switch (element){
                 case 'D' :
@@ -89,9 +103,42 @@ public class CollectDiamondProcess {
         m.initMap();
         m.printMap();
         CollectDiamondProcess cdp = new CollectDiamondProcess(m.getMap());
-        PinkPanther p = new PinkPanther();
-        p.printGenre();
-        cdp.collectDiamond(p);
+
+        //Init 200 pink panthers with random gene
+        List<PinkPanther> ppList = new ArrayList<>(200);
+        for(int i = 0; i < 200; i++) {
+            ppList.add(new PinkPanther());
+        }
+
+        int generation = 1;
+        List<Double> resultList = new ArrayList<>(1000);
+        while(generation++ <= 1000) {
+
+            cdp.collectDiamond(ppList);
+            double averageScore = Average.getAverage(ppList);
+            resultList.add(averageScore);
+
+            LOGGER.log(Level.INFO, "The " + generation + "th generation: the average score is " + averageScore);
+            List<PinkPanther> selectionList = EvolutionProcess.selection(ppList);
+            ppList = EvolutionProcess.evolution(selectionList);
+
+        }
+
+        try {
+            FileOutputStream fis = new FileOutputStream("./src/result.csv");
+            OutputStreamWriter isr = new OutputStreamWriter(fis);
+            BufferedWriter bw = new BufferedWriter(isr);
+            for (int j = 0; j < resultList.size(); j++) {
+                String content =  j + "," + (double) resultList.get(j) + "\n";
+                bw.write(content);
+                bw.flush();
+            }
+            bw.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }
