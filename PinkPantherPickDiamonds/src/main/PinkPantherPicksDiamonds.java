@@ -104,18 +104,41 @@ public class PinkPantherPicksDiamonds {
             for (int j = 0; j < lastFiveGenerationGene.size(); j++) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("Genre Code: ");
-                for(int i : firstFiveGenerationGene.get(j)) {
+                for(int i : lastFiveGenerationGene.get(j)) {
                     sb.append(i).append(" ");
                 }
                 sb.append("\n");
                 bw.write(sb.toString());
                 bw.flush();
             }
+            bw.write("\n");
+            bw.write("The genre code difference between first genre and last genre:");
+            int[] firstGenre = firstFiveGenerationGene.get(0);
+            int[] lastGenre = lastFiveGenerationGene.get(lastFiveGenerationGene.size() - 1);
+            StringBuilder sb = new StringBuilder();
+
+            int dif = 0;
+            for(int i = 0; i < 500; i++) {
+                if(firstGenre[i] == lastGenre[i]) {
+                    sb.append(firstGenre[i]);
+                }
+                else {
+                    sb.append("*");
+                    dif++;
+                }
+
+            }
+            bw.write(sb.toString());
+            bw.write("\n");
+            bw.write("The total number of differences is:" + dif);
+            bw.flush();
             bw.close();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
 
     }
 
