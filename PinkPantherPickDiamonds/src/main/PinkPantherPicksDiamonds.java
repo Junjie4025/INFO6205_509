@@ -126,7 +126,7 @@ public class PinkPantherPicksDiamonds {
                     sb.append("*");
                     dif++;
                 }
-
+                sb.append(" ");
             }
             bw.write(sb.toString());
             bw.write("\n");

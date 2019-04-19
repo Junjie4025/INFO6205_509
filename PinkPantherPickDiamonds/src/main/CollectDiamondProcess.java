@@ -79,10 +79,10 @@ public class CollectDiamondProcess {
 
     }
 
-    private void route(PinkPanther p,int row, int col){
+    private void route(PinkPanther p,int row, int col) {
         //LOGGER.log(Level.INFO, "pink panther has : "+ p.getPass() + " and its score is : " + p.getScore() + " now !");
 
-        if(row < 0 || row >= 50 || col < 0 || col >= 50) return;
+        if (row < 0 || row >= 50 || col < 0 || col >= 50) return;
 
         char element = map[row][col];
         int score = p.getScore();
@@ -91,29 +91,29 @@ public class CollectDiamondProcess {
         //System.out.println("element in map is " + element);
         //System.out.println("current pass is " + pass + " score is " + score);
 
-        switch (element){
-                case 'D' :
-                    score += 5;
+        switch (element) {
+            case 'D':
+                score += 5;
+                p.setScore(score);
+                break;
+            case 'C':
+                if (pass != 0) {
+                    p.setPass(pass - 1);
+                } else {
+                    score -= 3;
                     p.setScore(score);
-                    break;
-                case 'C' :
-                    if(pass != 0){
-                        p.setPass(pass - 1);
-                    }else{
-                        score -= 3;
-                        p.setScore(score);
-                    }
-                    break;
-                case 'P':
-                    pass++;
-                    p.setPass(pass);
-                    break;
-                case 'W':
-                    break;
-                case 'B':
-                    break;
-            }
-            //LOGGER.log(Level.INFO, "pink panther's passes updated to : "+ p.getPass() + " and its score now is : " + p.getScore() + " !");
+                }
+                break;
+            case 'P':
+                pass++;
+                p.setPass(pass);
+                break;
+            case 'W':
+                break;
+            case 'B':
+                break;
+        }
+        //LOGGER.log(Level.INFO, "pink panther's passes updated to : "+ p.getPass() + " and its score now is : " + p.getScore() + " !");
 
     }
 
