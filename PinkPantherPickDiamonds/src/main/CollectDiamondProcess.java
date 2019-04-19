@@ -3,6 +3,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.*;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,15 +44,15 @@ public class CollectDiamondProcess {
             }
 
             if( currentROW < 0 || currentROW == 50 || currentCOL < 0 || currentCOL == 50){
-                LOGGER.log(Level.WARNING, "pink panther is out of map now !");
+                //LOGGER.log(Level.WARNING, "pink panther is out of map now !");
                 i++;
             }else{
                 route(p,currentROW,currentCOL);
                 i++;
             }
-            LOGGER.log(Level.INFO, "pink panther's location changed to row: "+ currentROW + " col: " + currentCOL + " !");
+            //LOGGER.log(Level.INFO, "pink panther's location changed to row: "+ currentROW + " col: " + currentCOL + " !");
         }
-        LOGGER.log(Level.INFO, "pink panther's score is: "+ p.getScore());
+        //LOGGER.log(Level.INFO, "pink panther's score is: "+ p.getScore());
     }
 
     public void collectDiamond(List<PinkPanther> list) {
@@ -60,8 +63,24 @@ public class CollectDiamondProcess {
 
     }
 
+    public void collectDiamondParallel(List<PinkPanther> list) throws InterruptedException {
+
+        ExecutorService executorService = Executors.newCachedThreadPool();
+
+        for(PinkPanther p : list) {
+            CollectDiamondTask collectDiamondTask = new CollectDiamondTask(map, p);
+            executorService.execute(collectDiamondTask);
+        }
+
+        executorService.shutdown();
+        while(!executorService.isShutdown()) {
+            Thread.sleep(1000);
+        }
+
+    }
+
     private void route(PinkPanther p,int row, int col){
-        LOGGER.log(Level.INFO, "pink panther has : "+ p.getPass() + " and its score is : " + p.getScore() + " now !");
+        //LOGGER.log(Level.INFO, "pink panther has : "+ p.getPass() + " and its score is : " + p.getScore() + " now !");
 
         if(row < 0 || row >= 50 || col < 0 || col >= 50) return;
 
@@ -94,11 +113,11 @@ public class CollectDiamondProcess {
                 case 'B':
                     break;
             }
-            LOGGER.log(Level.INFO, "pink panther's passes updated to : "+ p.getPass() + " and its score now is : " + p.getScore() + " !");
+            //LOGGER.log(Level.INFO, "pink panther's passes updated to : "+ p.getPass() + " and its score now is : " + p.getScore() + " !");
 
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws InterruptedException{
         Map m = new Map();
         m.initMap();
         m.printMap();
@@ -111,10 +130,20 @@ public class CollectDiamondProcess {
         }
 
         int generation = 1;
-        List<Double> resultList = new ArrayList<>(1000);
-        while(generation++ <= 1000) {
+        List<Double> resultList = new ArrayList<>(100);
+        while(generation++ <= 1) {
 
-            cdp.collectDiamond(ppList);
+
+            /**
+             * If the algorithm need to be running in parallel environment, call the method collectDiamondParallel().
+             * If not, call the method collectDiamondParallel().
+             */
+
+            cdp.collectDiamondParallel(ppList);
+            //cdp.collectDiamond(ppList);
+
+
+
             double averageScore = Average.getAverage(ppList);
             resultList.add(averageScore);
 

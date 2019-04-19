@@ -19,7 +19,7 @@ public class EvolutionProcess {
     public static List<PinkPanther> selection(List<PinkPanther> list) throws IllegalArgumentException {
 
         if(list.size() != TOTALNUMBER) {
-            LOGGER.log(Level.WARNING, "The input size is wrong when calling EvolutionProcess.selection() method!");
+            //LOGGER.log(Level.WARNING, "The input size is wrong when calling EvolutionProcess.selection() method!");
             throw new IllegalArgumentException("The input size is not correct!");
         }
 
@@ -38,7 +38,7 @@ public class EvolutionProcess {
             result.add(pq.poll());
             number--;
         }
-        LOGGER.log(Level.INFO, "80 pink panthers with highest scores have been selected!");
+        //LOGGER.log(Level.INFO, "80 pink panthers with highest scores have been selected!");
 
         List<PinkPanther> temp = new ArrayList<>(TOTALNUMBER - SUPERIOR);
         while(!pq.isEmpty()) {
@@ -51,9 +51,9 @@ public class EvolutionProcess {
             int index = rand.nextInt(temp.size());
             result.add(temp.remove(index));
         }
-        LOGGER.log(Level.INFO, "20 remaining pink panthers have been selected RANDOMLY!");
-        LOGGER.log(Level.INFO, "All 100 pink panthers have been selected from original list!");
-        LOGGER.log(Level.INFO, "Selection process completed!");
+        //LOGGER.log(Level.INFO, "20 remaining pink panthers have been selected RANDOMLY!");
+        //LOGGER.log(Level.INFO, "All 100 pink panthers have been selected from original list!");
+        //LOGGER.log(Level.INFO, "Selection process completed!");
 
         return result;
     }
@@ -61,7 +61,7 @@ public class EvolutionProcess {
     public static List<PinkPanther> evolution(List<PinkPanther> list) throws IllegalArgumentException {
 
         if(list.size() != SELECTIONNUMBER) {
-            LOGGER.log(Level.WARNING, "The input size is wrong when calling EvolutionProcess.evolution() method!");
+            //LOGGER.log(Level.WARNING, "The input size is wrong when calling EvolutionProcess.evolution() method!");
             throw new IllegalArgumentException("The input size is not correct!");
         }
 
@@ -90,7 +90,7 @@ public class EvolutionProcess {
                 //mutation -- 1% possibility to change 1 genre in pink panther
                 int chance = rand.nextInt(100);
                 if(chance <= 1) {
-                    LOGGER.log(Level.INFO, "Mutation happened at " + j + "th pink panther in the list");
+                    //LOGGER.log(Level.INFO, "Mutation happened at " + j + "th pink panther in the list");
                     int index = rand.nextInt(500);
                     int value = rand.nextInt(4);
                     if(chance == 0) {
@@ -107,8 +107,8 @@ public class EvolutionProcess {
             result.add(newP1);
             result.add(newP2);
         }
-        LOGGER.log(Level.INFO, "New 100 pink panthers have been generated successfully! And totally 200 pink panthers put into the list");
-        LOGGER.log(Level.INFO, "Evolution process completed!");
+        //LOGGER.log(Level.INFO, "New 100 pink panthers have been generated successfully! And totally 200 pink panthers put into the list");
+        //LOGGER.log(Level.INFO, "Evolution process completed!");
         return result;
     }
 
